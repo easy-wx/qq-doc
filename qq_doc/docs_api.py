@@ -18,7 +18,7 @@ def _get_file_md5(file_path):
     return md5.hexdigest()
 
 
-class QQDocsAPI:
+class QQDocAPI:
     BASE_URL = "https://docs.qq.com"
     API_URL = f"{BASE_URL}/openapi/drive/v2"
 

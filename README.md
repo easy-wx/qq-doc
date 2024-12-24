@@ -1,4 +1,6 @@
-根据《[腾讯文档——开发文档](https://docs.qq.com/open/document/app/openapi/v2/)》实现了SDK接口。
+## 腾讯文档 API SDK
+
+根据《[腾讯文档——开发文档](https://docs.qq.com/open/document/app/openapi/v2/)》实现了 API 接口。
 
 请区分**腾讯文档**和**企业微信文档**，前者域名 docs.qq.com，后者域名是 doc.weixin.qq.com
 
@@ -7,6 +9,12 @@
 - token 有 cache
 - 基本接口有封装
 - 合并接口封装，比如单接口实现上传文档等
+
+Demo 中有 xlsx 的文档上传到指定目录下的示例，需要替换自己的 `client_id` 和 `client_secret`。
+
+<img src="/Users/panzhongxian/Library/Application Support/typora-user-images/image-20241224175745755.png" alt="image-20241224175745755" style="zoom:50%;" />
+
+**注意**：腾讯文档支持同名文件的存在，所以如果多次执行，会产生多个文件，他们的ID不同，但是命名相同。请记得清理
 
 ### 接口实现情况
 
