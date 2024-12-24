@@ -12,7 +12,7 @@
 
 Demo 中有 xlsx 的文档上传到指定目录下的示例，需要替换自己的 `client_id` 和 `client_secret`。
 
-<img src="/Users/panzhongxian/Library/Application Support/typora-user-images/image-20241224175745755.png" alt="image-20241224175745755" style="zoom:50%;" />
+<img src="./images/demo.png" alt="demo.png" style="zoom:50%;" />
 
 **注意**：腾讯文档支持同名文件的存在，所以如果多次执行，会产生多个文件，他们的ID不同，但是命名相同。请记得清理
 
