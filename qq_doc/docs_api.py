@@ -241,7 +241,6 @@ class QQDocAPI:
 
         response = requests.post(url, headers=headers, data=data)
         if response.status_code == 200:
-            print(response.json())
             return response.json()
         else:
             response.raise_for_status()
@@ -259,8 +258,8 @@ class QQDocAPI:
         while True:
             response = requests.get(url, headers=headers, params=params)
             if response.status_code == 200:
-                print(response.json())
                 if response.json()["ret"] != 0 or response.json()["data"].get("ID", None) is None:
+                    print("uploading...")
                     time.sleep(1)
                     continue
                 return response.json()["data"]
