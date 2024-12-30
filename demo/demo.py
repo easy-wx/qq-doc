@@ -23,7 +23,7 @@ def upload_file(client_id, client_secret, folder_name, filename):
     api = QQDocAPI(client_id, client_secret)
     folder = api.create_folder_if_not_exist(folder_name)
     new_file = api.upload_file(filename, folder["ID"])
-    print(api.set_file_permission(new_file["ID"], "publicWrite"))
+    api.set_file_permission(new_file["ID"], "publicWrite")
     return new_file
 
 
