@@ -10,13 +10,38 @@
 - 基本接口有封装
 - 合并接口封装，比如单接口实现上传文档等
 
+### 安装
+
+```bash
+pip install qq-doc
+```
+
+### 上传 xlsx 文件并转换的示例
+
 Demo 中有 xlsx 的文档上传到指定目录下的示例，需要替换自己的 `client_id` 和 `client_secret`。
+
+```python
+from qq_doc import QQDocAPI
+
+client_id = "your_client_id"
+client_secret = "your_client_secret"
+folder_name = "test"
+filename = "test.xlsx"
+
+api = QQDocAPI(client_id, client_secret)
+folder = api.create_folder_if_not_exist(folder_name)
+new_file = api.upload_file(filename, folder["ID"])
+
+# 加一个公开写权限，也可以使用publicRead, private, members
+api.set_file_permission(new_file["ID"], "publicWrite")
+print(new_file)
+```
 
 <img src="./images/demo.png" alt="demo.png" style="zoom:50%;" />
 
 **注意**：腾讯文档支持同名文件的存在，所以如果多次执行，会产生多个文件，他们的ID不同，但是命名相同。请记得清理
 
-### 接口实现情况
+## 接口实现情况
 
 ### 文件操作
 

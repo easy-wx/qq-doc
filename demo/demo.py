@@ -1,3 +1,5 @@
+import os.path
+
 from qq_doc import QQDocAPI
 
 
@@ -17,7 +19,15 @@ def create_xls_file(filename):
     workbook.close()
 
 
-def main():
+def upload_file(client_id, client_secret, folder_name, filename):
+    api = QQDocAPI(client_id, client_secret)
+    folder = api.create_folder_if_not_exist(folder_name)
+    new_file = api.upload_file(filename, folder["ID"])
+    print(api.set_file_permission(new_file["ID"], "publicWrite"))
+    return new_file
+
+
+def all_api_demo():
     client_id = "SET_THIS"
     client_secret = "SET_THIS"
 
@@ -53,4 +63,12 @@ def main():
     print(api.get_collaborators(file_id))
 
 
-main()
+if __name__ == "__main__":
+    if not os.path.exists("example.xlsx"):
+        create_xls_file("example.xlsx")
+
+    client_id = "SET_THIS"
+    client_secret = "SET_THIS"
+
+    new_file_info = upload_file(client_id, client_secret, "文件夹", "example.xlsx")
+    print(new_file_info)
